@@ -7,20 +7,22 @@ $secondary-color: rgb(47, 45, 40);
 
 body {
     font-family: 'Ubuntu', sans-serif;
-    background-color: $primary-color;
+    //background: -webkit-linear-gradient(to right, #73c8a9, #373b44); /* Chrome 10-25, Safari 5.1-6 */
+    //background: linear-gradient(to right, #73c8a9, #373b44); 
 }
 
 .hero {
-    height: 100vh;
-    max-width: 1200px;
+    height: 95vh;
+    //max-width: 1200px;
     animation: introLoad 1.5s forwards;
     margin: 0 auto;
 }
 
 .hero-img {
     height: 100%;
-    object-fit: cover;
-    transform: translateX(-10%);
+    object-fit:cover;
+    transform: translateX(-22%);
+    text-align: left;
     position: absolute;
     top: 0;
     left: 0;
@@ -33,19 +35,18 @@ body {
     animation: fadeIn 4s forwards;
 
     .black-hole {
-        padding: 1em;
+        padding: .75em;
         width: 4em;
         path {
             fill: $primary-color
         }
         animation: rotate 15s infinite;
-        animation-delay: 2s;
         animation-timing-function: linear;
     }
 
     .menu {
         align-self: right;
-        padding: 1.5em;
+        padding: 1em;
         width: 3.5em;
     
         path {
@@ -55,15 +56,131 @@ body {
 }
 
 .title-wrapper {
-    
-    margin-top: 1.75em;
-    font-size: 2.5em;
+    margin: 3.5em .5em;
+    font-size: 2em;
     color: $primary-color;
-
-    text-align: center;
-
+    text-align: left;
     animation: moveDown 1.5s ease-in-out forwards;
     opacity: 0;
+    max-width: 200px;
+
+    .subtitle {
+        margin-top: 1em;
+        font-size: .75em;
+    }
+}
+
+.down-arrow {
+    stroke: $secondary-color;
+    position: absolute;
+    bottom: 1em;
+    width: 1em;
+    right: 1em;
+    //animation: moveArrow 1s alternate-reverse infinite;
+    
+    path {
+        fill: $secondary-color;
+    }
+}
+
+.item {
+    margin: 3em 1em 3em 1em;
+    text-align: left;
+
+    ul {
+        list-style:none;
+        padding-left: 0;
+        //font-weight: bold;
+        li {
+            padding-top: .5em;
+        }
+    }
+
+    .title {
+        font-size: 2.25em;
+    }
+
+    .desc {
+        padding: 1em 0 1em 0;
+    }
+
+    .item-img {
+        width: 100%;
+        height: 200px;
+        object-fit:cover;
+    }
+}
+
+.separator {
+    //border-bottom: 2px solid black;
+}
+
+@media only screen and (min-width: 920px) {
+    .hero {
+        width: 100vw;
+
+        .hero-img {
+            object-fit:cover;
+            
+            position: absolute;
+            margin: 0 auto;
+            z-index: -999;
+        }
+    }
+
+    
+
+    section.hero {
+        color: black;
+        height: auto;
+        width: 40%;
+        margin-bottom: 8em;
+
+        .subhead {
+            margin-bottom: 3em;
+        }
+
+        svg.down-arrow {
+            stroke: black;
+            position: unset;
+
+            path {
+                fill: black;
+            }
+        }
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 3em;
+        margin-bottom: 8em;
+
+        img {
+            width: 25em;
+        }
+
+        .content {
+            text-align: right;
+            width: 25em;
+        }
+    }
+
+    .item.left {
+        grid-template-areas: 
+            "left right";
+        
+        img {
+            grid-area: left;
+        }
+
+        .title.desc {
+            text-align: left;
+            width: 25em;
+            justify-self: left;
+        }
+    }
+
 }
 
 @keyframes introLoad {
@@ -99,5 +216,14 @@ body {
         transform: rotate(0deg); 
     } to { 
         transform: rotate(-360deg); 
+    }
+}
+
+@keyframes moveArrow {
+    from {
+        transform: translateY(-30px)
+    }
+    to {
+        transform: translateY(0)
     }
 }

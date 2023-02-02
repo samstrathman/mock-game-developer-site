@@ -4,12 +4,10 @@
 
 body {
   font-family: "Ubuntu", sans-serif;
-  background-color: rgb(235, 222, 195);
 }
 
 .hero {
-  height: 100vh;
-  max-width: 1200px;
+  height: 95vh;
   -webkit-animation: introLoad 1.5s forwards;
           animation: introLoad 1.5s forwards;
   margin: 0 auto;
@@ -19,7 +17,8 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  transform: translateX(-10%);
+  transform: translateX(-22%);
+  text-align: left;
   position: absolute;
   top: 0;
   left: 0;
@@ -33,12 +32,10 @@ body {
           animation: fadeIn 4s forwards;
 }
 .top-bar .black-hole {
-  padding: 1em;
+  padding: 0.75em;
   width: 4em;
   -webkit-animation: rotate 15s infinite;
           animation: rotate 15s infinite;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
 }
@@ -47,7 +44,7 @@ body {
 }
 .top-bar .menu {
   align-self: right;
-  padding: 1.5em;
+  padding: 1em;
   width: 3.5em;
 }
 .top-bar .menu path {
@@ -55,15 +52,107 @@ body {
 }
 
 .title-wrapper {
-  margin-top: 1.75em;
-  font-size: 2.5em;
+  margin: 3.5em 0.5em;
+  font-size: 2em;
   color: rgb(235, 222, 195);
-  text-align: center;
+  text-align: left;
   -webkit-animation: moveDown 1.5s ease-in-out forwards;
           animation: moveDown 1.5s ease-in-out forwards;
   opacity: 0;
+  max-width: 200px;
+}
+.title-wrapper .subtitle {
+  margin-top: 1em;
+  font-size: 0.75em;
 }
 
+.down-arrow {
+  stroke: rgb(47, 45, 40);
+  position: absolute;
+  bottom: 1em;
+  width: 1em;
+  right: 1em;
+}
+.down-arrow path {
+  fill: rgb(47, 45, 40);
+}
+
+.item {
+  margin: 3em 1em 3em 1em;
+  text-align: left;
+}
+.item ul {
+  list-style: none;
+  padding-left: 0;
+}
+.item ul li {
+  padding-top: 0.5em;
+}
+.item .title {
+  font-size: 2.25em;
+}
+.item .desc {
+  padding: 1em 0 1em 0;
+}
+.item .item-img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media only screen and (min-width: 920px) {
+  .hero {
+    width: 100vw;
+  }
+  .hero .hero-img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    position: absolute;
+    margin: 0 auto;
+    z-index: -999;
+  }
+  section.hero {
+    color: black;
+    height: auto;
+    width: 40%;
+    margin-bottom: 8em;
+  }
+  section.hero .subhead {
+    margin-bottom: 3em;
+  }
+  section.hero svg.down-arrow {
+    stroke: black;
+    position: unset;
+  }
+  section.hero svg.down-arrow path {
+    fill: black;
+  }
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 3em;
+    margin-bottom: 8em;
+  }
+  .content img {
+    width: 25em;
+  }
+  .content .content {
+    text-align: right;
+    width: 25em;
+  }
+  .item.left {
+    grid-template-areas: "left right";
+  }
+  .item.left img {
+    grid-area: left;
+  }
+  .item.left .title.desc {
+    text-align: left;
+    width: 25em;
+    justify-self: left;
+  }
+}
 @-webkit-keyframes introLoad {
   from {
     -webkit-clip-path: polygon(100% 0, 100% 0, 100% 0, 0 100%);
@@ -74,7 +163,6 @@ body {
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
-
 @keyframes introLoad {
   from {
     -webkit-clip-path: polygon(100% 0, 100% 0, 100% 0, 0 100%);
@@ -133,5 +221,21 @@ body {
   }
   to {
     transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes moveArrow {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes moveArrow {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(0);
   }
 }/*# sourceMappingURL=index.css.map */
