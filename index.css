@@ -52,7 +52,7 @@ body {
 }
 
 .title-wrapper {
-  margin: 3.5em 0.5em;
+  padding: 2em 0.5em;
   font-size: 2em;
   color: rgb(235, 222, 195);
   text-align: left;
@@ -62,7 +62,7 @@ body {
   max-width: 200px;
 }
 .title-wrapper .subtitle {
-  margin-top: 1em;
+  padding-top: 1em;
   font-size: 0.75em;
 }
 
