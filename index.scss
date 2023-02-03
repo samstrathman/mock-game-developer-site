@@ -1,5 +1,5 @@
 $primary-color: rgb(235, 222, 195);
-$secondary-color: rgb(47, 45, 40);
+$secondary-color: #6a4524;
 
 html, body {
     font-family: 'Ubuntu', sans-serif;
@@ -15,6 +15,7 @@ html, body {
     overflow: hidden;
     position: relative;
 }
+
 
 .hero-img {
     height: 100%;
@@ -34,7 +35,7 @@ html, body {
 
     .black-hole {
         padding: .75em;
-        width: 4em;
+        width: 3em;
         path {
             fill: $primary-color
         }
@@ -45,7 +46,7 @@ html, body {
     .menu {
         align-self: right;
         padding: 1em;
-        width: 3.5em;
+        width: 2.75em;
     
         path {
             fill: $primary-color;
@@ -54,7 +55,8 @@ html, body {
 }
 
 .title-wrapper {
-    padding: 2em .5em;
+    padding-top: 2em;
+    padding-left: .5em;
     font-size: 2em;
     color: $primary-color;
     text-align: left;
@@ -62,9 +64,28 @@ html, body {
     opacity: 0;
     max-width: 200px;
 
+    .title {
+        text-shadow: -2px 2px $secondary-color;
+    }
+
     .subtitle {
         padding-top: 1em;
         font-size: .75em;
+    }
+}
+
+.down-arrow {
+    animation: moveArrow 2s alternate-reverse infinite;
+    width: 3em;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    path {
+        fill: $primary-color;
     }
 }
 
@@ -97,7 +118,7 @@ html, body {
 }
 
 .separator {
-    //border-bottom: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 @media only screen and (min-width: 920px) {
@@ -201,5 +222,14 @@ html, body {
         transform: rotate(0deg); 
     } to { 
         transform: rotate(-360deg); 
+    }
+}
+
+@keyframes moveArrow {
+    from {
+        transform: translateY(-10px)
+    }
+    to {
+        transform: translateY(0)
     }
 }

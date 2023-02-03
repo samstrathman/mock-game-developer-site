@@ -34,7 +34,7 @@ html, body {
 }
 .top-bar .black-hole {
   padding: 0.75em;
-  width: 4em;
+  width: 3em;
   -webkit-animation: rotate 15s infinite;
           animation: rotate 15s infinite;
   -webkit-animation-timing-function: linear;
@@ -46,14 +46,15 @@ html, body {
 .top-bar .menu {
   align-self: right;
   padding: 1em;
-  width: 3.5em;
+  width: 2.75em;
 }
 .top-bar .menu path {
   fill: rgb(235, 222, 195);
 }
 
 .title-wrapper {
-  padding: 2em 0.5em;
+  padding-top: 2em;
+  padding-left: 0.5em;
   font-size: 2em;
   color: rgb(235, 222, 195);
   text-align: left;
@@ -62,9 +63,27 @@ html, body {
   opacity: 0;
   max-width: 200px;
 }
+.title-wrapper .title {
+  text-shadow: -2px 2px #6a4524;
+}
 .title-wrapper .subtitle {
   padding-top: 1em;
   font-size: 0.75em;
+}
+
+.down-arrow {
+  animation: moveArrow 2s alternate-reverse infinite;
+  width: 3em;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.down-arrow path {
+  fill: rgb(235, 222, 195);
 }
 
 .item {
@@ -89,6 +108,10 @@ html, body {
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.separator {
+  border-bottom: 2px solid black;
 }
 
 @media only screen and (min-width: 920px) {
@@ -211,5 +234,21 @@ html, body {
   }
   to {
     transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes moveArrow {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes moveArrow {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0);
   }
 }/*# sourceMappingURL=index.css.map */
