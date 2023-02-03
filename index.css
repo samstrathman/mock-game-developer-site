@@ -1,16 +1,17 @@
-* {
-  margin: 0;
-}
-
-body {
+html, body {
   font-family: "Ubuntu", sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 
-.hero {
+.intro {
+  width: 100vw;
   height: 95vh;
   -webkit-animation: introLoad 1.5s forwards;
           animation: introLoad 1.5s forwards;
   margin: 0 auto;
+  overflow: hidden;
+  position: relative;
 }
 
 .hero-img {
@@ -64,17 +65,6 @@ body {
 .title-wrapper .subtitle {
   padding-top: 1em;
   font-size: 0.75em;
-}
-
-.down-arrow {
-  stroke: rgb(47, 45, 40);
-  position: absolute;
-  bottom: 1em;
-  width: 1em;
-  right: 1em;
-}
-.down-arrow path {
-  fill: rgb(47, 45, 40);
 }
 
 .item {
@@ -221,21 +211,5 @@ body {
   }
   to {
     transform: rotate(-360deg);
-  }
-}
-@-webkit-keyframes moveArrow {
-  from {
-    transform: translateY(-30px);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-@keyframes moveArrow {
-  from {
-    transform: translateY(-30px);
-  }
-  to {
-    transform: translateY(0);
   }
 }/*# sourceMappingURL=index.css.map */
