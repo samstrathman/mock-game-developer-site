@@ -16,7 +16,6 @@ html, body {
     position: relative;
 }
 
-
 .hero-img {
     height: 100%;
     object-fit:cover;
@@ -25,7 +24,7 @@ html, body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -999;
+    z-index: -1;
 }
 
 .top-bar {
@@ -54,8 +53,56 @@ html, body {
     }
 }
 
+.logo {
+    color: white;
+    font-weight: bold;
+}
+
+nav {
+   position: fixed;
+   right: 0;
+   top: 0;
+   background: white;
+   height: 100vh;
+   width: 50%;
+   z-index: 999;
+   text-transform: uppercase;
+   transform: translateX(100%);
+   transition: transform .5s ease-in-out;
+
+   ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 8em;
+
+        a {
+            color: black;
+            padding: .75em 2em;
+            display: block;
+            width: 100%;
+
+            &:hover {
+                background: rgb(235, 235, 235);
+            }
+        }
+   }
+
+   .close {
+        path {
+            fill: $secondary-color;
+        }
+        float: right;
+        padding: 1em;
+        width: 2.75em;
+   }
+}
+
+.open-nav {
+    transform: translateX(0%);
+}
+
 .title-wrapper {
-    padding-top: 2em;
+    padding-top: 1.75em;
     padding-left: .5em;
     font-size: 2em;
     color: $primary-color;
@@ -63,6 +110,7 @@ html, body {
     animation: moveDown 1.5s ease-in-out forwards;
     opacity: 0;
     max-width: 200px;
+    z-index: 1;
 
     .title {
         text-shadow: -2px 2px $secondary-color;
@@ -75,12 +123,12 @@ html, body {
 }
 
 .down-arrow {
-    animation: moveArrow 2s alternate-reverse infinite;
+    animation: moveArrow 1s alternate-reverse infinite;
     width: 3em;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    bottom: 0;
+    bottom: 40px;
     left: 0;
     right: 0;
     text-align: center;
@@ -90,24 +138,20 @@ html, body {
 }
 
 .item {
-    margin: 3em 1em 3em 1em;
+    margin: 2em 1em 2em 1em;
     text-align: left;
 
     ul {
-        list-style:none;
-        padding-left: 0;
-        //font-weight: bold;
+        list-style: square;
+        padding: 0 0 1em 1.25em;
+        font-weight: bold;
         li {
-            padding-top: .5em;
+            padding-top: .25em;
         }
     }
 
     .title {
         font-size: 2.25em;
-    }
-
-    .desc {
-        padding: 1em 0 1em 0;
     }
 
     .item-img {
@@ -122,41 +166,40 @@ html, body {
 }
 
 @media only screen and (min-width: 920px) {
-    .hero {
-        width: 100vw;
-
-        .hero-img {
-            object-fit:cover;
-            
-            position: absolute;
-            margin: 0 auto;
-            z-index: -999;
-        }
+    .menu {
+        display: none;
     }
 
-    
-
-    section.hero {
-        color: black;
+    nav {
+        transform: translateX(0);
+        position: unset;
+        display: block;
+        width: auto;
         height: auto;
-        width: 40%;
-        margin-bottom: 8em;
+        background: none;
 
-        .subhead {
-            margin-bottom: 3em;
+        svg.close {
+            display: none;
         }
 
-        svg.down-arrow {
-            stroke: black;
-            position: unset;
+        ul {
+            display: flex;
+            margin: 0;
 
-            path {
-                fill: black;
+            a {
+                color: white;
+                padding: .5em 1.5em;
+                font-size: .9rem;
+
+                &:hover {
+                    background: none;
+                    text-decoration: underline;
+                }
             }
         }
     }
 
-    .content {
+    .item {
         display: grid;
         grid-template-columns: repeat(2, auto);
         gap: 3em;
@@ -180,13 +223,12 @@ html, body {
             grid-area: left;
         }
 
-        .title.desc {
+        .content {
             text-align: left;
             width: 25em;
             justify-self: left;
         }
     }
-
 }
 
 @keyframes introLoad {
